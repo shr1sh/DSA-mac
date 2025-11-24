@@ -1,53 +1,52 @@
 # nums = [1,2,4,6]
-# pd1 = []
+# n = len(nums)
+# prefix = [1]*n
+
+# for i in range(1,len(nums)):
+#     prefix[i] = prefix[i-1] * nums[i-1]
+# print(prefix)
+
+# suffix = [1]*n
+# for i in range(len(nums)-2,-1,-1):
+#     suffix[i] = suffix[i+1]*nums[i+1]
+# print(suffix)
+
+# ans = []
 # for j in range(len(nums)):
-#     nums1 = nums.copy() # nums1 = [1,2,4,6]  # j=k=0
-#     nums1.pop(j)            # nums1 = [2,4,6]
-#     product = 1             
-#     for k in range(len(nums1)):  # 
-#         product *= nums1[l]      # product = 1*2 , product = 2*4 ,product *= 8*6=48
-#     pd1.append(product)
+#     ans.append(prefix[j] * suffix[j])
+# print(ans)
 
-# print(pd1)
+## neetcode code with 
+# class Solution:
+#     def productExceptSelf(self, nums: List[int]) -> List[int]:
+#         n = len(nums)
 
-# nums = [1,2,4,6]
-# pd1 = []
+#         prefix = [1] * n
+#         for i in range(1, n):
+#             prefix[i] = prefix[i-1] * nums[i-1]
 
-# for i in range(len(nums)):
-#     nums1 = nums.copy()
-#     nums1.pop(i)
+#         suffix = [1] * n
+#         for i in range(n-2, -1, -1):
+#             suffix[i] = suffix[i+1] * nums[i+1]
 
-#     product = 1
-#     for val in nums1:
-#         product *= val
+#         ans = [prefix[i] * suffix[i] for i in range(n)]
+#         return ans
 
-#     pd1.append(product)
+nums = [1,2,3,4]
 
-# print(pd1)
+n = len(nums)
+prefix = [1]*n
+for i in range(1,n):
+    prefix[i] = prefix[i-1]*nums[i-1]
+print(prefix)
 
-# while j<len(nums):
-#     nums1 = nums.copy()
-#     # nums1.pop(j)
-#     j=k
-#     while j==k:
-#         nums1.pop(j)
-#         product *= nums1[k]
-#         k+=1
-#     pd1.append(product)
-# print(pd1)
+suffix = [1]*n
+for i in range(n-2,-1,-1):
+    suffix[i] = suffix[i+1]*nums[i+1]
+print(suffix)
 
-# nums = [1,2,4,6]
-# pd1 = []
+ans = [1]*n
+for i in range(n):
+    ans[i] = prefix[i] * suffix[i]
 
-# for i in range(len(nums)):
-#     nums1 = nums.copy()
-#     nums1.pop(i)
-
-#     product = 1
-#     for val in nums1:
-#         product *= val
-
-#     pd1.append(product)
-
-# print(pd1)
-
+print(ans)
